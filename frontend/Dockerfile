@@ -1,7 +1,7 @@
 # Stage 1: build React app
 FROM node:20-alpine AS build
 
-WORKDIR /app
+WORKDIR /appdo
 
 COPY package*.json ./
 RUN npm install

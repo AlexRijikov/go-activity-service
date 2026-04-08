@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/AlexRijikov/go-activity-service/configs"
+	config "github.com/AlexRijikov/go-activity-service/configs"
 	"github.com/AlexRijikov/go-activity-service/internal/handler"
 	"github.com/AlexRijikov/go-activity-service/internal/repository"
 	"github.com/AlexRijikov/go-activity-service/internal/scheduler"
