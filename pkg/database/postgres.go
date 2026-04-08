@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/AlexRijikov/go-activity-service/internal/config"
+	config "github.com/AlexRijikov/go-activity-service/configs"
 	_ "github.com/lib/pq"
 )
 

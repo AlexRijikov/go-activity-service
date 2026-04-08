@@ -1,19 +1,22 @@
-# Stage 1: build React app
-FROM node:20-alpine AS build
+# frontend/Dockerfile
+FROM node:20-alpine AS builder
 
-WORKDIR /appdo
+WORKDIR /app
 
+# Копіюємо тільки package.json і package-lock.json для кешування залежностей
 COPY package*.json ./
+
 RUN npm install
 
+# Копіюємо весь код фронтенду
 COPY . .
+
+# Створюємо production build
 RUN npm run build
 
-# Stage 2: serve with Nginx
+# Stage для nginx
 FROM nginx:alpine
-
-COPY --from=build /app/build /usr/share/nginx/html
-COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/build /usr/share/nginx/html
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
